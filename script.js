@@ -6,8 +6,6 @@ const btnCloseModal = document.querySelector('.close-modal');
 const btnsOpenModal = document.querySelectorAll('.show-modal');
 
 const openModal = function () {
-  console.log('Button clicked');
-
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
@@ -38,3 +36,12 @@ btnCloseModal.addEventListener('click', closeModal);
 
 //para que se oculte la ventana incluso si soo das click en overlay
 overlay.addEventListener('click', closeModal);
+document.addEventListener('keydown', function (e) {
+  console.log(e.key);
+
+  if (e.key === 'Escape' && !modal.classList.contains('hidden ')) {
+    closeModal();
+  }
+});
+//USAMOS EL . DESPUÉS EL NOMBRE DE LA PROPIEDAD PARA LEER CUALQUIER PROPIEDAD DE UN OBJETO
+// USAMOS EL ! PARA INVERTIR EL ARGUMENTO IMPORTANT
